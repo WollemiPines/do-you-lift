@@ -1,0 +1,5 @@
+-- DELETE
+DROP DATABASE IF EXISTS lift_db;
+
+-- CREATE
+CREATE DATABASE lift_db;
