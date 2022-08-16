@@ -70,7 +70,6 @@ User.init(
             }
         }
     },
-
     {
         hooks: {
             beforeCreate: async (newUserData) => {
@@ -86,13 +85,3 @@ User.init(
 );
 
 module.exports = User;
-
-
-// models
-// user
-// -id
-// -name
-// -email
-// -password
-// -data from fitness- bmi etc.
-// -workouts selected
