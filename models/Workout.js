@@ -38,3 +38,5 @@ Workout.init(
         modelname: 'workout'
     }
 );
+
+module.exports = Workout;

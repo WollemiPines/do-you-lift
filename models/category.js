@@ -22,3 +22,5 @@ Category.init(
         modelname: 'category'
     }
 );
+
+module.exports = Category;

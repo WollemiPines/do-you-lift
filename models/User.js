@@ -39,10 +39,10 @@ User.init(
                 len: [8],
             }
         },
-        gender: {
+        bodyType: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: { isIn: [['M', 'F', 'O']] }
+            validate: { isIn: [['M', 'F']] }
         },
         age: {
             type: DataTypes.INTEGER,
