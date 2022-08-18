@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-auto">
+    <h2>Welcome, {{user_name}}!</h2>
+  </div>
+</div>
+
+<div class="row mt-4">
+<div class="col-md-8">
+  {{#if users_workouts.length}}
+  <div class="col-md-6 topic-list">
+    <h3>Your Workouts</h3>
+
+    {{#each workout as |workout|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4><a href="/workouts/{{workout.id}}">{{workout.name}}</a></h4>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-sm btn-danger" data-id="{{workout.id}}">DELETE</button>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+  </div>
+
+  <div class="col-md-4">
+    <h3>Tell us about yourself!</h3>
+
+    <form class="form user-info">
+      <div class="form-group">
+        <label for="user-height">Height in cm</label>
+        <input class="form-input" type="text" id="user-height" name="topic-name" />
+      </div>
+      <div class="form-group">
+        <label for="user-weight">Weight in kg</label>
+        <input class="form-input" type="number" id="user-weight" name="topic-funding" />
+      </div>
+      <div class="form-group">
+      <select class="form-select body-type" aria-label="body-type">
+        <option selected>Body Type</option>
+        <option value="male" id="male">masculine</option>
+        <option value="female" id="female">feminine</option>
+    </select>
+        </div>
+        <div class="form-group">
+        <label for="user-age">Age</label>
+        <textarea class="form-input" id="user-age" name="topic-desc"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Update</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="../public/js/userprofile.js"></script>
