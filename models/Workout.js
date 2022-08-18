@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-
+const sequelize = require('../config/connection');
 class Workout extends Model { }
 
 Workout.init(
@@ -13,29 +13,23 @@ Workout.init(
         name: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: { isAlphanumeric: true }
-        },
-        description: {
-            type: DataTypes.STRING,
-            allowNull: false,
         },
         reps: {
             type: DataTypes.INTEGER,
-            allowNull: false
         },
         category_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'category',
+                model: 'Category',
                 key: 'id'
             }
         }
     },
     {
         sequelize,
-        timestamps: true,
+        timestamps: false,
         freezeTableName: true,
-        modelname: 'workout'
+        modelname: 'Workout'
     }
 );
 

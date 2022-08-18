@@ -1,17 +1,26 @@
-const User = require('./User');
-const Workout = require('./Workout');
 const Category = require('./category');
+const Workout = require('./workout');
+const User = require('./User');
+const WorkoutCategories = require('./workoutCategories');
+const UserWorkouts = require('./userWorkouts');
 
 Workout.belongsToMany(Category, {
-    foreignKey: 'category_id'
+    through: 'workoutCategories'
+})
+Category.belongsToMany(Workout, {
+    through: 'workoutCategories'
 })
 
 Category.hasMany(Workout, {
     foreignKey: 'category_id'
 })
 
-Workout.belongsToMany(User, {
+Workout.hasMany(Category, {
     foreignKey: 'workout_id'
+})
+
+Workout.belongsToMany(User, {
+    through: 'userWorkouts'
 })
 
 User.hasMany(Workout, {
@@ -21,5 +30,7 @@ User.hasMany(Workout, {
 module.exports = {
     Category,
     Workout,
-    User
+    User,
+    WorkoutCategories,
+    UserWorkouts
 };
