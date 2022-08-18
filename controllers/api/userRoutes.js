@@ -2,13 +2,15 @@ const router = require('express').Router();
 const { User, Workout, Category } = require('../../models');
 
 ////////////////////////////////////////////////////////
-    // TO DO:
-        // 'CREATE' route for user sign up
-        // 'logged_in' in models?
-        // create cookie session data in 'server.js'
+    // ROUTES NEEDED:
+    // (a) create user on sign-up
+    // (b) get one user
+    // (c) validate inputted email and password with associated user in database
+    // (d) delete user
+    // (e) session clear on logout
 ////////////////////////////////////////////////////////
 
-// Create route for new user on sign up
+// (a) create user on sign-up
 router.post('/', async (req, res) => {
     try {
         const userData = await User.create(req.body);
@@ -23,7 +25,7 @@ router.post('/', async (req, res) => {
         res.status(400).json(err);
     }
 })
-// Route to get one user by id - for profile page
+// (b) get one user
 router.get('/:id', async (req, res) => {
     try {
         userData = await User.findByPk(req.params.id, {
@@ -35,7 +37,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-// Authenticate password and email on user login
+// (c) validate inputted email and password with associated user in database
 router.post('/login', async (req, res) => {
     try{
         const userData = await User.findOne({ where: { email: req.body.email } });
@@ -62,7 +64,7 @@ router.post('/login', async (req, res) => {
         res.status(400).json(err);
     }
 });
-// Delete a user by its id value. Not sure wether we want to include this option
+// (d) delete user
 router.delete('/:id', async (req, res) => {
     try {
         const userData = await User.destroy({
@@ -80,7 +82,7 @@ router.delete('/:id', async (req, res) => {
         res.status(400).json(err)
     }
 })
-// Logout router. Clears session wether user is logged in or not.
+// (e) session clear on logout
 router.post('/logout', (req, res) => {
     if (req.session.logged_in){
         req.session.destroy(() => {
