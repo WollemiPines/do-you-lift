@@ -1,21 +1,22 @@
 const newFormHandler = async (event) => {
     event.preventDefault();
   
-    const name = document.querySelector('#project-name').value.trim();
-    const needed_funding = document.querySelector('#project-funding').value.trim();
-    const description = document.querySelector('#project-desc').value.trim();
+    const height = document.querySelector('#user-height').value.trim();
+    const weight = document.querySelector('#user-weight').value.trim();
+    const gender = document.querySelector('#user-gender').value;
+    const age = document.querySelector('#user-age').value.trim();
   
-    if (name && needed_funding && description) {
-      const response = await fetch(`/api/projects`, {
+    if (height && weight && gender && age) {
+      const response = await fetch(`/api/user`, {
         method: 'POST',
-        body: JSON.stringify({ name, needed_funding, description }),
+        body: JSON.stringify({ height, weight, gender, age }),
         headers: {
           'Content-Type': 'application/json',
         },
       });
   
       if (response.ok) {
-        document.location.replace('/profile');
+        document.location.replace('/user');
       } else {
         alert('Failed to create project');
       }
@@ -26,23 +27,23 @@ const newFormHandler = async (event) => {
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
   
-      const response = await fetch(`/api/projects/${id}`, {
+      const response = await fetch(`/api/user/${id}`, {
         method: 'DELETE',
       });
   
       if (response.ok) {
-        document.location.replace('/profile');
+        document.location.replace('/user');
       } else {
-        alert('Failed to delete project');
+        alert('Failed to delete workout');
       }
     }
   };
   
   document
-    .querySelector('.new-project-form')
+    .querySelector('.user-info')
     .addEventListener('submit', newFormHandler);
   
   document
-    .querySelector('.project-list')
+    .querySelector('.workout-list')
     .addEventListener('click', delButtonHandler);
   
