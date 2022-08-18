@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Workout, Category } = require('../../models');
 
 ////////////////////////////////////////////////////////
     // TO DO:
@@ -23,6 +23,18 @@ router.post('/', async (req, res) => {
         res.status(400).json(err);
     }
 })
+// Route to get one user by id - for profile page
+router.get('/:id', async (req, res) => {
+    try {
+        userData = await User.findByPk(req.params.id, {
+            include: [ { model: Category, through: Workout }]
+        });
+        res.status(200).json(userData)
+    }   catch (err){
+        res.status(500).json(err);
+    }
+});
+
 // Authenticate password and email on user login
 router.post('/login', async (req, res) => {
     try{
@@ -50,6 +62,24 @@ router.post('/login', async (req, res) => {
         res.status(400).json(err);
     }
 });
+// Delete a user by its id value. Not sure wether we want to include this option
+router.delete('/:id', async (req, res) => {
+    try {
+        const userData = await User.destroy({
+            where: {
+                id: req.params.id,
+            }
+        });
+        if (!userData){
+            res.status(404).json({ message: 'No user matches this id'});
+            return
+        };
+
+        res.status(200).json(userData)
+    } catch (err) {
+        res.status(400).json(err)
+    }
+})
 // Logout router. Clears session wether user is logged in or not.
 router.post('/logout', (req, res) => {
     if (req.session.logged_in){
