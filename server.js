@@ -14,9 +14,9 @@ const PORT = process.env.PORT || 3001;
 // import handlebars as `exphbs.create({X})` /
 // ///////////////////////////////////////////
 
-// ////////////////////////
-// Add cookie sesion data /
-// ///////////////////////
+const hbs = exphbs.create()
+
+
 
 const sess = {
   secret: process.env.SESSION_SECRET,
