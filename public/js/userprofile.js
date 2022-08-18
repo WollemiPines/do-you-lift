@@ -22,6 +22,8 @@ const newFormHandler = async (event) => {
       }
     }
   };
+
+//   TODO: add a GET fetch req for the users completed workouts
   
   const delButtonHandler = async (event) => {
     if (event.target.hasAttribute('data-id')) {
