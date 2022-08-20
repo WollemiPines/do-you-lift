@@ -7,13 +7,13 @@
 <div class="row mt-4">
 <div class="col-md-8">
   {{#if users_workouts.length}}
-  <div class="col-md-6 topic-list">
+  <div class="col-md-6 workout-list">
     <h3>Your Workouts</h3>
 
     {{#each workout as |workout|}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h4><a href="/workouts/{{workout.id}}">{{workout.name}}</a></h4>
+        <h4><a href="/workout/{{workout.id}}">{{workout.name}}</a></h4>
       </div>
       <div class="col-md-4">
         <button class="btn btn-sm btn-danger" data-id="{{workout.id}}">DELETE</button>
@@ -21,6 +21,10 @@
     </div>
     {{/each}}
   </div>
+  {{#else}}
+  <div class="col-md-6 workout-list">
+    <h3>You have not completed any workouts yet! Go to the workouts tab to log some</h3>
+ </div>
   {{/if}}
   </div>
 
