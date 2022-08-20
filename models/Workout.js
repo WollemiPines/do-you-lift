@@ -16,18 +16,11 @@ Workout.init(
         },
         reps: {
             type: DataTypes.INTEGER,
-        },
-        category_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'Category',
-                key: 'id'
-            }
         }
     },
     {
         sequelize,
-        timestamps: false,
+        timestamps: true,
         freezeTableName: true,
         modelname: 'Workout'
     }

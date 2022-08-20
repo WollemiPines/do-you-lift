@@ -1,10 +1,10 @@
-const { Workout } = require('../models');
+const { Workout, WorkoutCategories } = require('../models');
 
 const workoutData = [
     {
         name: 'Push Ups',
         reps: 10,
-        category_id: 2//[2,4]
+        category_id: 2
     },
     {
         name: 'Sit Ups',
@@ -33,6 +33,22 @@ const workoutData = [
     }
 ];
 
-const seedWorkouts = () => Workout.bulkCreate(workoutData);
+// const seedWorkouts = () => Workout.bulkCreate(workoutData);
+const seedWorkouts = async () => {
+    for (const key in workoutData) {
+        await Workout.create(workoutData[key])
+            .then((data) => {
+                if (workoutData[key].category_id.length) {
+                    const workoutIdArr = workoutData[key].category_id.map((category) => {
+                        return {
+                            workout_id: data.id,
+                            category_id: category
+                        };
+                    })
+                    return WorkoutCategories.bulkCreate(workoutIdArr)
+                } else WorkoutCategories.create({ workout_id: data.id, category_id: workoutData[key].category_id })
+            });
+    };
+};
 
 module.exports = seedWorkouts;

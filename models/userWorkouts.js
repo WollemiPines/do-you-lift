@@ -1,10 +1,11 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const Workout = require('./workout');
+const User = require('./User')
 class UserWorkouts extends Model { };
 
 UserWorkouts.init(
     {
-        // define columns
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -14,14 +15,14 @@ UserWorkouts.init(
         workout_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'workout',
+                model: Workout,
                 key: 'id'
             }
         },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'user',
+                model: User,
                 key: 'id'
             }
         }
@@ -31,7 +32,7 @@ UserWorkouts.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'userWorkouts',
+        modelName: 'UserWorkouts',
     }
 );
 

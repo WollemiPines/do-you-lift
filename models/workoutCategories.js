@@ -1,12 +1,13 @@
 const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection');
+const Category = require('./category');
+const Workout = require('./workout');
 
 class WorkoutCategories extends Model { };
 
 WorkoutCategories.init(
     {
-        // define columns
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -16,14 +17,14 @@ WorkoutCategories.init(
         workout_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'Workout',
+                model: Workout,
                 key: 'id'
             }
         },
         category_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'Category',
+                model: Category,
                 key: 'id'
             }
         }

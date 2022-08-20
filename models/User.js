@@ -1,7 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
-const Workout = require('./workout');
 
 class User extends Model {
     checkPassword(loginPw) {
@@ -49,6 +48,7 @@ User.init(
         weight: {
             type: DataTypes.DECIMAL,
         },
+        // BMI =  weight / (height^2)    
         bmi: {
             type: DataTypes.DECIMAL,
         },
@@ -56,13 +56,6 @@ User.init(
             type: DataTypes.STRING,
             validate: {
                 isIn: [['balance', 'mildWeightLoss', 'mildWeightGain', 'heavyWeightLoss', 'heavyWeightGain']]
-            }
-        },
-        workout_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'Workout',
-                key: 'id'
             }
         }
     },
@@ -74,7 +67,7 @@ User.init(
             },
         },
         sequelize,
-        timestamps: false,
+        timestamps: true,
         freezeTableName: true,
         modelname: 'User',
     }
