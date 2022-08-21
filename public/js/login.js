@@ -15,7 +15,7 @@ const loginFormHandler = async (event) => {
   
       if (response.ok) {
         // If successful, redirect the browser to the homepage
-        document.location.replace('/homepage');
+        document.location.replace('/profile');
       } else {
         alert(response.statusText);
       }
@@ -30,14 +30,14 @@ const loginFormHandler = async (event) => {
     const password = document.querySelector('#password-signup').value.trim();
   
     if (name && email && password) {
-      const response = await fetch('/api/users', {
+      const response = await fetch('/api/user', {
         method: 'POST',
         body: JSON.stringify({ name, email, password }),
         headers: { 'Content-Type': 'application/json' },
       });
   
       if (response.ok) {
-        document.location.replace('/homepage');
+        document.location.replace('/workouts');
       } else {
         alert(response.statusText);
       }
