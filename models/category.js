@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+
 class Category extends Model { }
 
 Category.init(
@@ -13,13 +14,6 @@ Category.init(
         name: {
             type: DataTypes.STRING,
             allowNull: false
-        },
-        workout_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'Workout',
-                key: 'id'
-            }
         }
     },
     {

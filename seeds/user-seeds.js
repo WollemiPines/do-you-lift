@@ -1,6 +1,5 @@
-const { User } = require('../models');
+const { User, UserWorkouts} = require('../models');
 
-// BMI = your weight divided by your height squared
 const userData = [
     {
         name: 'Bob',
@@ -10,7 +9,7 @@ const userData = [
         age: 42,
         height: 1.8,
         weight: 100,
-        bmi: 30.86, //Placeholder - calculate from the function 
+        bmi: 30.86, 
         goal: 'mildWeightLoss',
         workout_id: 1
     },
@@ -24,7 +23,7 @@ const userData = [
         weight: 60,
         bmi: 23.43,
         goal: 'balance',
-        workout_id: 2
+        workout_id: [2,3]
     },
     {
         name: 'Janice',
@@ -42,16 +41,31 @@ const userData = [
         name: 'Mittens',
         email: 'gymcat@gym.com',
         password: 'catsrule12345',
+        bodyType: 'F',
         age: 4,
         height: 0.3,
         weight: 2,
         bmi: 22.22,
         goal: 'balance',
-        workout_id: 4
+        workout_id: [1,2,3,4]
     }
 ]
 
-const seeduserData = () => User.bulkCreate(userData);
-
+const seeduserData = async () => {
+    for (const key in userData) {
+        await User.create(userData[key])
+            .then((data) => {
+                if (userData[key].workout_id.length) {
+                    const workoutIdArr = userData[key].workout_id.map((workout) => {
+                        return {
+                            user_id: data.id,
+                            workout_id: workout
+                        };
+                    })
+                    return UserWorkouts.bulkCreate(workoutIdArr)
+                } else UserWorkouts.create({ user_id: data.id, workout_id: userData[key].workout_id })
+            })
+    }
+};
 module.exports = seeduserData;
 
