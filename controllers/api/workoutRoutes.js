@@ -54,7 +54,7 @@ router.get('/', async (req, res) => {
 
         const workouts = workoutData.map((category) => category.get({ plain: true }));
 
-        res.render('homepage', {
+        res.render('workouts', {
             workouts,
             logged_in: req.params.logged_in
         });

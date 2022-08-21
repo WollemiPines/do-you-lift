@@ -2,6 +2,27 @@ const router = require('express').Router();
 const { User, Workout, Category} = require('../models');
 const withAuth = require('../utils/auth');
 
+router.get('/', async (req, res) => {
+    try {
+        const userData = await User.findAll({
+            include: [
+                {
+                    model: Workout,
+                    attributes: ['name'],
+                }
+            ]
+        })
+
+        const users = userData.map((users) => users.get({ plain: true }));
+
+        res.render('login', {
+            users,
+            logged_in: req.session.logged_in,
+        });
+    } catch (err){
+        res.render(500).json(err)
+    }
+})
 // Route to user's workout page
 router.get('/workouts', async (req, res) => {
     try {
@@ -45,7 +66,7 @@ router.get('/profile', withAuth, async (req, res) => {
 // If the user is already logged in, redirect the request to their profile.
 router.get('/login', (req, res) => {
     if (req.session.logged_in){
-        res.redirect('/userprofile');
+        res.redirect('/profile');
         return
     }
     res.render('login')
