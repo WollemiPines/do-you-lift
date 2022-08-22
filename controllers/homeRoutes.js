@@ -55,10 +55,10 @@ router.get('/profile', withAuth, async (req, res) => {
             include: [{ model: Workout}]
         });
 
-        const user = userData.get({ plain: true});
-
+        const user = userData.get({ plain: true });    
+        
         res.render('userprofile', {
-            ...user,
+            user,
             logged_in: true
         });
         
