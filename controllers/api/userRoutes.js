@@ -11,6 +11,7 @@ const { User, Workout, Category } = require('../../models');
 ////////////////////////////////////////////////////////
 
 // (a) create user on sign-up
+    // returns: SequelizeValidationError
 router.post('/', async (req, res) => {
     try {
         const userData = await User.create(req.body);
@@ -83,6 +84,7 @@ router.delete('/:id', async (req, res) => {
     }
 })
 // (e) session clear on logout
+    // returns: SequelizeEagerLoadingError
 router.post('/logout', (req, res) => {
     if (req.session.logged_in){
         req.session.destroy(() => {

@@ -47,6 +47,8 @@ router.get('/workouts', async (req, res) => {
 })
 // Route to user's profile page
 router.get('/profile', withAuth, async (req, res) => {
+
+    console.log("gets correct route")
     try {
         const userData = await User.findByPk(req.session.user.id, {
             attributes: { exclude: ['password'] },
