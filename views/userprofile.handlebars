@@ -41,10 +41,20 @@
         <input class="form-input" type="number" id="user-weight" name="user-weight" />
       </div>
       <div class="form-group">
+         <label for="body-type">Body Type:</label>
       <select class="form-select body-type" aria-label="body-type">
-        <option selected>Body Type</option>
-        <option value="male" id="male">masculine</option>
-        <option value="female" id="female">feminine</option>
+        <option value="male" id="male" selected>Masculine</option>
+        <option value="female" id="female">Feminine</option>
+    </select>
+        </div>
+         <div class="form-group">
+         <label for="user-goal">Goal:</label>
+      <select class="form-select user-goal" aria-label="body-type">
+        <option value="heavyWeightGain" id="heavyWeightGain">Heavy Weight Gain</option>
+        <option value="mildWeightGain" id="mildWeightGain">Mild Weight Gain</option>
+        <option value="balance" id="balance" selected>Balance Weight</option>
+        <option value="mildWeightLoss" id="mildWeightLoss">Mild Weight Loss</option>
+        <option value="heavyWeightLoss" id="heavyWeightLoss">Heavy Weight Loss</option>
     </select>
         </div>
         <div class="form-group">
