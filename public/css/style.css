@@ -1,7 +1,7 @@
 /* Colours */
 :root{
 	--mainDocBlue: rgb(7, 127, 255);
-	--contrastDocBlue: rgb(0, 61, 126);
+	--contrastDocBlue: rgb(0, 74, 154);
 }
 
 /* BODY */
@@ -13,8 +13,14 @@ body{
 	font:600 16px/18px 'Open Sans',sans-serif;
 }
 
-.text-color{
+/* Headers */
+
+.text-main{
 	color: var(--mainDocBlue);
+}
+
+.text-color{
+	color: var(--contrastDocBlue);
 }
 
 /* LOGIN BOX */
