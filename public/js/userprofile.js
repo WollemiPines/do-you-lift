@@ -8,7 +8,7 @@ const newFormHandler = async (event) => {
   
     if (height && weight && gender && age) {
       const response = await fetch(`/api/user`, {
-        method: 'POST',
+        method: 'PUT',
         body: JSON.stringify({ height, weight, gender, age }),
         headers: {
           'Content-Type': 'application/json',

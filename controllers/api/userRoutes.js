@@ -26,6 +26,14 @@ router.post('/', async (req, res) => {
         res.status(400).json(err);
     }
 })
+
+// // update
+// router.put('/api/user', async (req, res) => {
+//     try {
+//         const userData = await User.update(req.body)
+
+//     }
+// })
 // (b) get one user
 router.get('/:id', async (req, res) => {
     try {

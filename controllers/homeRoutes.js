@@ -50,7 +50,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
     console.log("gets correct route")
     try {
-        const userData = await User.findByPk(req.session.user.id, {
+        const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] },
             include: [{ model: Workout}]
         });
@@ -61,7 +61,9 @@ router.get('/profile', withAuth, async (req, res) => {
             ...user,
             logged_in: true
         });
+        
     } catch (err) {
+        console.log(err)
         res.status(500).json(err)
     }
 })
