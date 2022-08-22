@@ -48,7 +48,6 @@ User.init(
         weight: {
             type: DataTypes.DECIMAL,
         },
-        // BMI =  weight / (height^2)    
         bmi: {
             type: DataTypes.DECIMAL,
         },
