@@ -24,7 +24,7 @@
 				{{!-- Conditionally render login or logout links --}}
 				{{#if logged_in}}
 				<li class="nav-item"><a class="nav-link" href="/profile">profile</a></li>
-				<li class="nav-item"><a class="nav-link" href="/logout">logout</a></li>
+				<li class="nav-item"><a id="logout" class="nav-link">logout</a></li>
 				{{else}}
 				<li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
 				<li class="nav-item"><a class="nav-link" href="/login">Sign up</a></li>
@@ -50,7 +50,7 @@
 
 {{!-- Render script for logged in users only --}}
 {{#if logged_in}}
-   <script src="/public/js/logout.js"></script>
+   <script src="./js/logout.js"></script>
 {{/if}}
 </body>
 

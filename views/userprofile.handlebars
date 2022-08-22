@@ -21,7 +21,7 @@
     </div>
     {{/each}}
   </div>
-  {{#else}}
+  {{else}}
   <div class="col-md-6 workout-list">
     <h3>You have not completed any workouts yet! Go to the workouts tab to log some</h3>
  </div>
@@ -34,11 +34,11 @@
     <form class="form user-info">
       <div class="form-group">
         <label for="user-height">Height in cm</label>
-        <input class="form-input" type="text" id="user-height" name="topic-name" />
+        <input class="form-input" type="text" id="user-height" name="user-height" />
       </div>
       <div class="form-group">
         <label for="user-weight">Weight in kg</label>
-        <input class="form-input" type="number" id="user-weight" name="topic-funding" />
+        <input class="form-input" type="number" id="user-weight" name="user-weight" />
       </div>
       <div class="form-group">
       <select class="form-select body-type" aria-label="body-type">
@@ -49,7 +49,7 @@
         </div>
         <div class="form-group">
         <label for="user-age">Age</label>
-        <textarea class="form-input" id="user-age" name="topic-desc"></textarea>
+        <textarea class="form-input" id="user-age" name="user-age"></textarea>
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Update</button>
