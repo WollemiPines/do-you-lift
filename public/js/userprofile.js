@@ -3,22 +3,23 @@ const newFormHandler = async (event) => {
   
     const height = document.querySelector('#user-height').value.trim();
     const weight = document.querySelector('#user-weight').value.trim();
-    const gender = document.querySelector('#user-gender').value;
+    const bodyType = document.querySelector('#user-gender').value;
     const age = document.querySelector('#user-age').value.trim();
   
-    if (height && weight && gender && age) {
+    if (height && weight && bodyType && age) {
+      console.log(bodyType)
       const response = await fetch(`/api/user`, {
         method: 'PUT',
-        body: JSON.stringify({ height, weight, gender, age }),
+        body: JSON.stringify({ height, weight, bodyType, age }),
         headers: {
           'Content-Type': 'application/json',
         },
       });
   
       if (response.ok) {
-        document.location.replace('/user');
+        document.location.replace('/profile');
       } else {
-        alert('Failed to create project');
+        alert('Failed to update user');
       }
     }
   };
@@ -43,7 +44,7 @@ const newFormHandler = async (event) => {
   
   document
     .querySelector('.user-info')
-    .addEventListener('submit', newFormHandler);
+    .addEventListener('click', newFormHandler);
   
   document
     .querySelector('.workout-list')
