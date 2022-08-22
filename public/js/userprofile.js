@@ -5,12 +5,13 @@ const newFormHandler = async (event) => {
     const weight = document.querySelector('#user-weight').value.trim();
     const bodyType = document.querySelector('#user-gender').value;
     const age = document.querySelector('#user-age').value.trim();
+    const goal = document.querySelector('#user-goal').value;
   
-    if (height && weight && bodyType && age) {
+    if (height && weight && bodyType && age && goal) {
       console.log(bodyType)
       const response = await fetch(`/api/user`, {
         method: 'PUT',
-        body: JSON.stringify({ height, weight, bodyType, age }),
+        body: JSON.stringify({ height, weight, bodyType, age, goal }),
         headers: {
           'Content-Type': 'application/json',
         },
