@@ -27,13 +27,27 @@ router.post('/', async (req, res) => {
     }
 })
 
-// // update
-// router.put('/api/user', async (req, res) => {
-//     try {
-//         const userData = await User.update(req.body)
-
-//     }
-// })
+// update user information
+router.put('/', async (req, res) => {
+    try {
+        const user = await User.findByPk(req.session.user_id)
+        const userData = await user.update(req.body, 
+            {
+                height: req.params.height,
+                weight: req.params.weight,
+                bodyType: req.params.gender,
+                age: req.params.age,
+                // where: {
+                //     id: req.params.user.id
+                // }
+            });
+            console.log("Got this far")
+            res.status(200).json(userData)
+    } catch (err){
+        console.log(err)
+        res.status(500).json(err)
+    }
+})
 // (b) get one user
 router.get('/:id', async (req, res) => {
     try {

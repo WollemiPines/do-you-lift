@@ -31,7 +31,7 @@
   <div class="col-md-4">
     <h3>Tell us about yourself!</h3>
 
-    <form class="form user-info">
+    <form class="form">
       <div class="form-group">
         <label for="user-height">Height in cm</label>
         <input class="form-input" type="text" id="user-height" name="user-height" />
@@ -41,10 +41,10 @@
         <input class="form-input" type="number" id="user-weight" name="user-weight" />
       </div>
       <div class="form-group">
-      <select class="form-select body-type" aria-label="body-type">
+      <select id="user-gender" class="form-select body-type" aria-label="body-type">
         <option selected>Body Type</option>
-        <option value="male" id="male">masculine</option>
-        <option value="female" id="female">feminine</option>
+        <option value="M" id="male">masculine</option>
+        <option value="F" id="female">feminine</option>
     </select>
         </div>
         <div class="form-group">
@@ -52,10 +52,10 @@
         <textarea class="form-input" id="user-age" name="user-age"></textarea>
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="submit" class="btn btn-primary user-info">Update</button>
       </div>
     </form>
   </div>
 </div>
 
-<script src="../public/js/userprofile.js"></script>
+<script src="./js/userprofile.js"></script>
