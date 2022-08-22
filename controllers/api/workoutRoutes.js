@@ -56,7 +56,7 @@ router.get('/', async (req, res) => {
 
         res.render('workouts', {
             workouts,
-            logged_in: req.params.logged_in
+            // logged_in: req.params.logged_in
         });
     } catch (err) {
         res.status(500).json(err)
