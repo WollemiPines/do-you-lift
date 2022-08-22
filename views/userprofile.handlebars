@@ -34,23 +34,33 @@
     <form class="form">
       <div class="form-group">
         <label for="user-height">Height in cm</label>
-        <input class="form-input" type="text" id="user-height" name="user-height" />
+        <input class="form-control" type="text" id="user-height" name="user-height" />
       </div>
       <div class="form-group">
         <label for="user-weight">Weight in kg</label>
-        <input class="form-input" type="number" id="user-weight" name="user-weight" />
+        <input class="form-control" type="number" id="user-weight" name="user-weight" />
       </div>
       <div class="form-group">
-      <select id="user-gender" class="form-select body-type" aria-label="body-type">
-        <option selected>Body Type</option>
-        <option value="M" id="male">masculine</option>
-        <option value="F" id="female">feminine</option>
+
+        <label for="user-age">Age</label>
+        <input class="form-control" type="number" id="user-age" name="user-age" />
+      </div>
+      <div class="form-group">
+         <label for="body-type">Body Type:</label>
+      <select class="form-select body-type" aria-label="body-type">
+        <option value="M" id="male" selected>Masculine</option>
+        <option value="F" id="female">Feminine</option>
     </select>
         </div>
-        <div class="form-group">
-        <label for="user-age">Age</label>
-        <textarea class="form-input" id="user-age" name="user-age"></textarea>
-      </div>
+         <div class="form-group">
+         <label for="user-goal">Goal:</label>
+      <select class="form-select user-goal" aria-label="body-type">
+        <option value="heavyWeightGain" id="heavyWeightGain">Heavy Weight Gain</option>
+        <option value="mildWeightGain" id="mildWeightGain">Mild Weight Gain</option>
+        <option value="balance" id="balance" selected>Balance Weight</option>
+        <option value="mildWeightLoss" id="mildWeightLoss">Mild Weight Loss</option>
+        <option value="heavyWeightLoss" id="heavyWeightLoss">Heavy Weight Loss</option>
+        </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary user-info">Update</button>
       </div>
