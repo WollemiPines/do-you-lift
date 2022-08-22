@@ -3,7 +3,13 @@
 [![license](https://img.shields.io/static/v1?label=License&message=MIT&color=blue)](https://opensource.org/licenses/MIT)
 
 ## Description: 
-Workout Tracker app, allowing users to set goals, and add + select workouts
+Workout Tracker app that allows users to create their own profile, set goals, select workouts and add their own workouts. 
+
+## Contributors:
+* Ruben - https://github.com/r-r-i
+* Chris - https://github.com/WollemiPines
+* Luke - https://github.com/lukesudom
+* Alex - https://github.com/Alexander-Perry
 
 ## Table of Contents: 
 * [Description](#description)
