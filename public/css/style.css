@@ -1,9 +1,34 @@
+/* Colours */
+:root{
+	--mainDocBlue: rgb(7, 127, 255);
+	--contrastDocBlue: rgb(0, 74, 154);
+}
+
+/* BODY */
+
 body{
 	margin:0;
 	color:#6a6f8c;
 	background:#c8c8c8;
 	font:600 16px/18px 'Open Sans',sans-serif;
 }
+
+/* Headers */
+
+.text-main{
+	color: var(--mainDocBlue);
+}
+
+.text-color{
+	color: var(--contrastDocBlue);
+}
+
+.navbar-nav{
+	padding-right: 30px;
+}
+
+/* LOGIN BOX */
+
 *,:after,:before{box-sizing:border-box}
 .clearfix:after,.clearfix:before{content:'';display:table}
 .clearfix:after{clear:both;display:block}
@@ -139,6 +164,8 @@ a{color:inherit;text-decoration:none}
 .login-html .sign-up:checked + .tab + .login-form .sign-up-htm{
 	transform:rotate(0);
 }
+
+/* FOOTER */
 
 .hr{
 	height:2px;
