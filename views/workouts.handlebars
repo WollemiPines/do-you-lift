@@ -1,21 +1,31 @@
 <div class="row">
     <div class="col-auto">
-        <h2> Welcome, {{user_name}}!</h2>
+        <h2> Have a look at these... {{user.name}}</h2>
     </div>
 </div>
 
-<div class="col-md-2">
-    {{#if workouts.length}}
-    <h2>All workouts</h2>
-    {{#each workouts as |workout|}}
-    <div class="workouts">
-        <h3>{{workout.name}}</h3>
-        <p>{{workout.reps}}</p>
-    {{else}}
-    <p>No more workouts available</p>
-    {{/each}}
-    <button type="submit" class="btn btn-primary" id="edit">Add</button>
-    <button type="submit" class="btn btn-secondary" id="update">Increase Intensity</button>
+{{#if workouts.length}}
+     <h2>All workouts</h2>
+{{#each workouts as |workout|}}
+<div class="card">
+  <h5 class="card-header workout-category">{{workout.category}}</h5>
+  <div class="card-body">
+    <h5 class="card-title workout-name">{{workout.name}}</h5>
+    <p class="card-text workout-reps">{{workout.reps}}</p>
+    <a type="submit" href="#" class="btn btn-primary workout-log">Log this workout</a>
+    <div class="intensityBttns"> Toggle Intensity
+    <div>
+         <a href="#"><i class="fa fa-caret-up fa-2x workout-in"></i></a>
+    </div>
+    <div>
+         <a href="#"><i class="fa fa-caret-down fa-2x workout-dec"></i></a>
+    </div>
+    </div>
+ </div>
 </div>
+{{else}}
+    <p>No workouts available</p>
+{{/each}}
+{{/if}}
 
-<script src="../public/js/workout.js"></script>
+{{!-- <script src="../public/js/workout.js"></script> --}}
