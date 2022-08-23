@@ -5,17 +5,17 @@
 </div>
 
 <div class="col-md-2">
+    {{#if workouts.length}}
     <h2>All workouts</h2>
-
     {{#each workouts as |workout|}}
     <div class="workouts">
-        <h3>{{workout}}</h3>
-        <p>{{workout}}</p>
+        <h3>{{workout.name}}</h3>
+        <p>{{workout.reps}}</p>
     {{else}}
     <p>No more workouts available</p>
     {{/each}}
-    <button type="submit" class="btn btn-primary" id="edit">Edit</button>
-    <button type="submit" class="btn btn-primary" id="update">Update</button>
+    <button type="submit" class="btn btn-primary" id="edit">Add</button>
+    <button type="submit" class="btn btn-secondary" id="update">Increase Intensity</button>
 </div>
 
 <script src="../public/js/workout.js"></script>
