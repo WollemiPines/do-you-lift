@@ -8,7 +8,6 @@ const newFormHandler = async (event) => {
     const goal = document.querySelector('#user-goal').value;
   
     if (height && weight && bodyType && age && goal) {
-      console.log(bodyType)
       const response = await fetch(`/api/user`, {
         method: 'PUT',
         body: JSON.stringify({ height, weight, bodyType, age, goal }),
@@ -29,14 +28,18 @@ const newFormHandler = async (event) => {
   
   const delButtonHandler = async (event) => {
     if (event.target.hasAttribute('data-id')) {
+      console.log(event)
       const id = event.target.getAttribute('data-id');
+      console.log(id)
+
+      // const user = 
   
       const response = await fetch(`/api/user/${id}`, {
         method: 'DELETE',
       });
   
       if (response.ok) {
-        document.location.replace('/user');
+        document.location.replace('/profile');
       } else {
         alert('Failed to delete workout');
       }
