@@ -68,10 +68,6 @@ router.get('/profile', withAuth, async (req, res) => {
     }
 })
 
-router.delete('/profile', async (req, res) => {
-    console.log('Delete Pressed');
-})
-
 // If the user is already logged in, redirect the request to their profile.
 router.get('/login', (req, res) => {
     if (req.session.logged_in){
