@@ -148,3 +148,8 @@ a{color:inherit;text-decoration:none}
 .foot-lnk{
 	text-align:center;
 }
+
+.intensityBttns{
+	display: flex;
+	justify-content: flex-start;
+}
