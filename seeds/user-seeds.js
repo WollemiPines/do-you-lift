@@ -11,7 +11,8 @@ const userData = [
         weight: 100,
         bmi: 30.86, 
         goal: 'mildWeightLoss',
-        workout_id: 1
+        workout_id: 1,
+        reps:20
     },
     {
         name: 'Sarah',
@@ -23,7 +24,8 @@ const userData = [
         weight: 60,
         bmi: 23.43,
         goal: 'balance',
-        workout_id: [2,3]
+        workout_id: [2, 3],
+        reps:[20,30]
     },
     {
         name: 'Janice',
@@ -35,7 +37,8 @@ const userData = [
         weight: 50,
         bmi: 23.78,
         goal: 'balance',
-        workout_id: 3
+        workout_id: 3,
+        reps: 7
     },
     {
         name: 'Mittens',
@@ -47,25 +50,33 @@ const userData = [
         weight: 2,
         bmi: 22.22,
         goal: 'balance',
-        workout_id: [1,2,3,4]
+        workout_id: [1, 2, 3, 4],
+        reps:[10,20,10,5]
     }
 ]
 
+// Seed the userdata
 const seeduserData = async () => {
     for (const key in userData) {
         await User.create(userData[key])
             .then((data) => {
-                if (userData[key].workout_id.length) {
-                    const workoutIdArr = userData[key].workout_id.map((workout) => {
+                const {workout_id, reps } = userData[key];
+                if (workout_id.length) {
+                    // Function to map both workout_id and reps arrays. 
+                    // Only needed for the seed function as the user will be adding these individually so no need for the loop.
+                    const workoutIdArr = (workout_id, reps) => workout_id.map((workout, index) => {
                         return {
                             user_id: data.id,
-                            workout_id: workout
+                            workout_id: workout,
+                            reps: reps[index]
                         };
                     })
-                    return UserWorkouts.bulkCreate(workoutIdArr)
-                } else UserWorkouts.create({ user_id: data.id, workout_id: userData[key].workout_id })
+                    return UserWorkouts.bulkCreate(workoutIdArr(workout_id, reps))
+                } else UserWorkouts.create({ user_id: data.id, workout_id: workout_id, reps: reps })
             })
     }
 };
+
+
 module.exports = seeduserData;
 
