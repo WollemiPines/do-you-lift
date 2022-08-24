@@ -48,6 +48,28 @@ const loginFormHandler = async (event) => {
       }
     }
   };
+
+  const showSignUp = async (event) => {
+    event.preventDefault();
+    let sign = document.getElementById("signup-container");
+    let log = document.getElementById("login-container")
+    sign.classList.remove("hidden");
+    log.classList.add("hidden");
+  }
+
+  const showLogIn = async (event) => {
+    event.preventDefault();
+
+    let sign = document.getElementById("signup-container");
+    let log = document.getElementById("login-container")
+    sign.classList.add("hidden");
+    log.classList.remove("hidden");
+  }
+
+  const hideSignUp = async () => {
+    let sign = document.getElementById("signup-container");
+    sign.classList.add("hidden");
+  }
   
   document
     .querySelector('.login-btn')
@@ -56,3 +78,13 @@ const loginFormHandler = async (event) => {
   document
     .querySelector('.signup-form')
     .addEventListener('click', signupFormHandler);
+
+  document
+    .querySelector('.loginBtn')
+    .addEventListener('click', showLogIn);
+
+  document
+    .querySelector('.signUpBtn')
+    .addEventListener('click', showSignUp);
+
+    hideSignUp();
