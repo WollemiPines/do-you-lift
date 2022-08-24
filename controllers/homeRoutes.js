@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 
         const users = userData.map((users) => users.get({ plain: true }));
 
-        res.render('login', {
+        res.render('homepage', {
             users,
             logged_in: req.session.logged_in,
         });

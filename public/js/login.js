@@ -42,7 +42,7 @@ const loginFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/workouts');
+        document.location.replace('/');
       } else {
         alert(response.statusText);
       }
