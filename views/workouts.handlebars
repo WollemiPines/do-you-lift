@@ -11,14 +11,14 @@
   <h5 class="card-header workout-category">{{workout.category}}</h5>
   <div class="card-body">
     <h5 class="card-title workout-name">{{workout.name}}</h5>
-    <p class="card-text workout-reps">{{workout.reps}}</p>
+    <p class="card-text workout-reps" id="workout-{{@index}}">{{workout.reps}}</p>
     <a type="submit" href="#" class="btn btn-primary workout-log">Log this workout</a>
     <div class="intensityBttns"> Toggle Intensity
     <div>
-         <a href="#"><i class="fa fa-caret-up fa-2x workout-in"></i></a>
+         <a href="#"><i class="fa fa-caret-up fa-2x workout-in workout-in" name="workout-in"></i></a>
     </div>
     <div>
-         <a href="#"><i class="fa fa-caret-down fa-2x workout-dec"></i></a>
+         <a href="#"><i class="fa fa-caret-down fa-2x workout-dec" btn="workout-dec"></i></a>
     </div>
     </div>
  </div>
@@ -28,4 +28,4 @@
 {{/each}}
 {{/if}}
 
-{{!-- <script src="../public/js/workout.js"></script> --}}
+<script src="/js/workout.js"></script>
