@@ -24,12 +24,14 @@
   <div class="flex-row-reverse collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav pr-5">
 	    {{#if logged_in}}
+		<a class="nav-item nav-link nav-color" href="/">Homepage</a>
 		<a class="nav-item nav-link nav-color" href="/workouts">Workouts</a>
 		<a class="nav-item nav-link nav-color" href="/profile">Profile</a>
 		<a class="nav-item nav-link nav-color" id="logout">Logout</a>
 		{{else}}
-		<a class="nav-item nav-link loginBtn nav-color" href="/login">Login</a>
-		<a class="nav-item nav-link signUpBtn nav-color" href="/login">Sign up</a>
+		<a class="nav-item nav-link nav-color" href="/">Homepage</a>
+		<a class="nav-item nav-link nav-color" href="/login">Login</a>
+		<a class="nav-item nav-link nav-color" href="/login">Sign up</a>
 		{{/if}}
     </div>
   </div>
