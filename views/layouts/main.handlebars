@@ -15,7 +15,7 @@
 <body>
 	{{!-- NAVBAR (consistent across all handlebar pages) --}}
 <nav class="navbar navbar-expand-sm">
-  	<a class="navbar-brand" href="/profile">
+  	<a class="navbar-brand" href="/">
   		<h2 class="text-main custom-logo ">DO YOU EVEN LIFT?</span></h2>
   	</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,7 +24,7 @@
   <div class="flex-row-reverse collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav pr-5">
 	    {{#if logged_in}}
-		<a class="nav-item nav-link nav-color" href="/">Homepage</a>
+		<a class="nav-item nav-link nav-color" href="/">Home</a>
 		<a class="nav-item nav-link nav-color" href="/workouts">Workouts</a>
 		<a class="nav-item nav-link nav-color" href="/profile">Profile</a>
 		<a class="nav-item nav-link nav-color" id="logout">Logout</a>
@@ -41,16 +41,6 @@
 	{{!-- Rendering the sub layout --}}
 	{{{ body }}}
 </main>
-<footer>
-	<div class="row align-items-center mt-5 px-3 bg-black mx-1">
-		<div class="col-lg-4">
-			<p class="text-white mt-3">Do you even lift? © 2022</p>
-		</div>
-	</div>
-</footer>
-		
-	
-
 
 {{!-- Render script for logged in users only --}}
 {{#if logged_in}}
