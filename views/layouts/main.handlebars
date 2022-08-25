@@ -16,12 +16,12 @@
 	{{!-- NAVBAR (consistent across all handlebar pages) --}}
 <nav class="navbar navbar-expand-sm">
   	<a class="navbar-brand" href="/">
-  		<h2 class="text-main custom-logo ">DO YOU EVEN LIFT?</span></h2>
+  		<h2 class="text-main custom-logo ">LIFT</span></h2>
   	</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="flex-row-reverse collapse navbar-collapse" id="navbarNavAltMarkup">
+  <div class="flex-row-reverse collapse navbar-collapse custom-nav" id="navbarNavAltMarkup">
     <div class="navbar-nav pr-5">
 	    {{#if logged_in}}
 		<a class="nav-item nav-link nav-color" href="/">Home</a>
@@ -29,7 +29,7 @@
 		<a class="nav-item nav-link nav-color" href="/profile">Profile</a>
 		<a class="nav-item nav-link nav-color" id="logout">Logout</a>
 		{{else}}
-		<a class="nav-item nav-link nav-color" href="/">Homepage</a>
+		<a class="nav-item nav-link nav-color" href="/">Home</a>
 		<a class="nav-item nav-link nav-color loginBtn" href="/login">Login</a>
 		<a class="nav-item nav-link nav-color signUpBtn" href="/login">Sign up</a>
 		{{/if}}

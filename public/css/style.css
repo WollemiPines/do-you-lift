@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 /* Colours */
 :root{
 	--mainDocBlue: rgb(7, 127, 255);
@@ -198,15 +199,74 @@ a{color:inherit;text-decoration:none}
 }
 
 .font-head {
-	font-family: 'Arial', sans-serif;
+	font-family: 'Bebas Neue', cursive;
 	font-size: calc(1.325rem + .9vw);
 	color: #F1EEE6;
+	text-align: center;
 
 }
 
 .custom-font {
+	text-align: center;
 	font-family: 'Arial', sans-serif;
 	color: #F1EEE6;
-	font-size: 16px;
+	font-size: 14px;
 	font-weight: normal;
+	letter-spacing: 1px;
+}
+
+/* PROFILE BUTTON ON HOMEPAGE */
+
+.profile-wrap {
+	padding-top: 10px;
+}
+  
+.profile-button {
+display: block;
+position: relative;
+font-size: 20px;
+line-height: 1em;
+text-transform: uppercase;
+background: rgb(0, 74, 154);
+padding: 10px 18px;
+text-decoration: none;
+color: #fff;
+margin: 0 0px;
+border-radius:5px;
+overflow:hidden;
+text-align: center;
+}
+  
+.profile-button:after,
+.profile-button:before {
+content: "";
+display: block;
+position: absolute;
+border: 2px solid #49839900;
+width: 10px;
+top:0;
+bottom:0;
+transition:all 0.6s cubic-bezier(0.05, 3, 1, 1) 0s;
+}
+
+.profile-button:before {
+border-right: 0;
+margin-right: 5px;
+left:0;
+}
+  
+.profile-button:after {
+border-left: 0;
+margin-left: 5px;
+right:0;
+}
+  
+.profile-button:hover {
+background: rgba(6, 33, 60, 0.4);
+color: #F1EEE6;
+}
+
+.profile-button:hover:after,
+.profile-button:hover:before {
+border-color: rgb(0, 74, 154);
 }

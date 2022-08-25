@@ -173,18 +173,25 @@ body {
 }
 /* Custom class for text top left of page */
 .custom-logo {
-    padding-left: 20px;
+    padding-left: 300px;
     padding-top: 20px;
-    font: 'Open Sans', 'sans-serif';
+    font-family: 'Bebas Neue', cursive;
     color: #FFF;
+	letter-spacing: 10px;
+	font-size: 50px;
 }
 /* Custom class for nav link colors */
 .nav-color {
     color: #FFF;
     font-size: 19px;
+	font-weight: normal;
 }
 .nav-color:hover {
     color: #FFF;
+}
+
+.custom-nav {
+	padding-right: 275px;
 }
 
 
