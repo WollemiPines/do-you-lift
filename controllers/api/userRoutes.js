@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Workout, Category } = require('../../models');
+const { User, Workout, Category, UserWorkouts } = require('../../models');
 const fitnessCalculator = require("fitness-calculator");
 
 ////////////////////////////////////////////////////////
@@ -7,7 +7,7 @@ const fitnessCalculator = require("fitness-calculator");
 // (a) create user on sign-up
 // (b) get one user
 // (c) validate inputted email and password with associated user in database
-// (d) delete user
+// (d) delete user Workout
 // (e) session clear on logout
 ////////////////////////////////////////////////////////
 
@@ -87,25 +87,28 @@ router.post('/login', async (req, res) => {
     }
 });
 
-// (d) delete user
+// (d) delete user Workout
 //  using session id prevents other unrelated users from deleting others
 router.delete('/:id', async (req, res) => {
     try {
-        const userData = await User.destroy({
+        const workoutID = req.params.id;
+        const userID = req.session.user_id;
+        console.log(workoutID)
+        console.log(userID)
+        const userWorkout = await UserWorkouts.destroy({
             where: {
-                id: req.session.user_id
+                user_id: userID,
+                workout_id: workoutID
             }
-        });
-        if (!userData) {
-            res.status(404).json({ message: 'No user matches this id' });
-            return
-        };
-
-        res.status(200).json(userData)
+        })
+        res.status(200).json(userWorkout)
     } catch (err) {
-        res.status(400).json(err)
-    }
-})
+        console.log(err)
+        res.status(500).json(err)
+    };
+});
+
+   
 // (e) session clear on logout
 router.post('/logout', (req, res) => {
     if (req.session.logged_in) {

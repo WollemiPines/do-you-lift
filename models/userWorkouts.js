@@ -25,6 +25,9 @@ UserWorkouts.init(
                 model: User,
                 key: 'id'
             }
+        },
+        reps: {
+            type: DataTypes.INTEGER
         }
     },
     {

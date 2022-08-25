@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 
         const users = userData.map((users) => users.get({ plain: true }));
 
-        res.render('login', {
+        res.render('homepage', {
             users,
             logged_in: req.session.logged_in,
         });
@@ -23,6 +23,8 @@ router.get('/', async (req, res) => {
         res.render(500).json(err)
     }
 })
+
+
 // Route to user's workout page
 router.get('/workouts', async (req, res) => {
     try {
@@ -47,8 +49,6 @@ router.get('/workouts', async (req, res) => {
 })
 // Route to user's profile page
 router.get('/profile', withAuth, async (req, res) => {
-
-    console.log("gets correct route")
     try {
         const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] },
@@ -67,6 +67,7 @@ router.get('/profile', withAuth, async (req, res) => {
         res.status(500).json(err)
     }
 })
+
 // If the user is already logged in, redirect the request to their profile.
 router.get('/login', (req, res) => {
     if (req.session.logged_in){
