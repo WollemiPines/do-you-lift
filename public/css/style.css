@@ -1,3 +1,7 @@
+/*link*/
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css);
+
+
 /* Colours */
 :root{
 	--mainDocBlue: rgb(7, 127, 255);
@@ -201,7 +205,6 @@ a{color:inherit;text-decoration:none}
 	font-family: 'Arial', sans-serif;
 	font-size: calc(1.325rem + .9vw);
 	color: #F1EEE6;
-
 }
 
 .custom-font {
@@ -210,3 +213,47 @@ a{color:inherit;text-decoration:none}
 	font-size: 16px;
 	font-weight: normal;
 }
+
+
+ul {
+	list-style-type: f44b;
+	margin: 5px;
+}
+
+li {
+	padding: 5px;
+}
+
+
+/* change before commit */
+
+.lift-about {
+	text-decoration: solid;
+	text-align: center;
+}
+.hover-underline-animation {
+	display: inline-block;
+	position: relative;
+	color: white;
+}
+.hover-underline-animation:after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	transform: scaleX(0);
+	height: 2px;
+	bottom: 0;
+	left: 0;
+	background-color: white;
+	transform-origin: bottom right;
+	transition: transform 0.25s ease-out;
+  }
+
+  .hover-underline-animation:hover:after {
+	transform: scaleX(1);
+	transform-origin: bottom left;
+  }
+
+  #check-box-green {
+	color: rgb(101, 236, 101);
+  }
