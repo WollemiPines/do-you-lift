@@ -110,4 +110,22 @@ router.delete('/:id', withAuth, async (req, res) => {
     }
 });
 
+// Add Workout to users workouts database
+router.put('/', async (req, res) => {
+    try {
+        const { category_id, name, reps } = req.body;
+        const user = await user.findOne(req.session.workout_id);
+        await user.update(
+            {workout_id: workout_id} ,
+            {where:
+                { name: user.name} 
+        });
+        res.status(200).json(user)
+    } catch (err) {
+        console.log(err)
+        res.status(500).json(err)
+    };
+});
+
+
 module.exports = router;
