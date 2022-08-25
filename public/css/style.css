@@ -271,3 +271,53 @@ color: #F1EEE6;
 .profile-button:hover:before {
 border-color: rgb(0, 74, 154);
 }
+
+.custom-nav {
+	display: flex;
+	padding-right: 275px;
+}
+
+/* Custom class for text top left of page */
+.custom-logo {
+	display: flex;
+    margin-left: 300px;
+    padding-top: 20px;
+    font-family: 'Bebas Neue', cursive;
+    color: #FFF;
+	letter-spacing: 10px;
+	font-size: 75px;
+}
+/* Custom class for nav link colors */
+.nav-color {
+    color: #FFF;
+    font-size: 19px;
+	font-weight: normal;
+}
+.nav-color:hover {
+    color: #FFF;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 991px) {
+
+	.custom-nav {
+		display: flex;
+		justify-content: center;
+		flex-direction: row;
+		font-size: 25px;
+		float: none;
+		padding-right: 0;
+		margin: auto;
+		text-align: center;
+
+	}
+
+	.custom-logo {
+		text-align: center;
+		margin: 0;
+	
+
+	}
+
+}
