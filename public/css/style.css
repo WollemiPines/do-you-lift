@@ -180,3 +180,33 @@ a{color:inherit;text-decoration:none}
 	display: flex;
 	justify-content: flex-start;
 }
+
+/* CUSTOM CLASSES */
+
+.custom-spacing {
+	padding-top: 13%;
+}
+
+.custom-box {
+	background: rgba(0,0,0,.5);
+	box-shadow: 0 15px 25px rgba(0 0 0 / 50%);
+	border-radius: 10px;
+}
+
+.card {
+	--bs-card-bg: none;
+}
+
+.font-head {
+	font-family: 'Arial', sans-serif;
+	font-size: calc(1.325rem + .9vw);
+	color: #F1EEE6;
+
+}
+
+.custom-font {
+	font-family: 'Arial', sans-serif;
+	color: #F1EEE6;
+	font-size: 16px;
+	font-weight: normal;
+}
