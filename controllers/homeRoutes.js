@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Workout, Category} = require('../models');
+const { User, Workout, Category } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
             users,
             logged_in: req.session.logged_in,
         });
-    } catch (err){
+    } catch (err) {
         res.render(500).json(err)
     }
 })
@@ -52,12 +52,11 @@ router.get('/profile', withAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] },
-            include: [{ model: Workout}]
+            include: [{ model: Workout }]
         });
 
-        const user = userData.get({ plain: true }); 
-        const isFem = (user.bodyType == 'F')
-        console.log(user.goal)
+        const user = userData.get({ plain: true });
+        // Gets the current user goal, adjusts the wording for display
         const currentGoal = () => {
             switch (user.goal) {
                 case "mildWeightGain": return 'Mild Weight Gain'
@@ -67,20 +66,20 @@ router.get('/profile', withAuth, async (req, res) => {
                 case 'heavyWeightLoss': return 'Heavy Weight Loss'
             };
         };
+        // gets the current bodytype, adjusts the wording for display
         const currentBodyType = () => {
             switch (user.bodyType) {
                 case 'M': return "Masculine"
                 case 'F': return "Feminine"
             }
         };
-
         res.render('userprofile', {
             user,
             logged_in: true,
             currentGoal,
             currentBodyType,
         });
-        
+
     } catch (err) {
         console.log(err)
         res.status(500).json(err)
@@ -89,7 +88,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
 // If the user is already logged in, redirect the request to their profile.
 router.get('/login', (req, res) => {
-    if (req.session.logged_in){
+    if (req.session.logged_in) {
         res.redirect('/profile');
         return
     }
