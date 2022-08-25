@@ -1,69 +1,74 @@
 <div class="row">
-  <div class="col-auto">
+  <div class="col-12 mx-4">
     <h2>Welcome, {{user.name}}!</h2>
   </div>
 </div>
 
-<div class="row mt-4">
-<div class="col-md-8">
-  {{#if user.Workouts.length}}
-  <div class="col-md-6 workout-list">
-    <h3>Your Workouts</h3>
-    {{workout}}
+<div class="row mt-4 mx-2">
+  <div class="col-md-8">
+    {{#if user.Workouts.length}}
+    <div class="col-md-8 workout-list">
+      <h3>Your Workouts</h3>
+      {{workout}}
 
-    {{#each user.Workouts as |workout|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
-        <h4><a href="/workout/{{workout.id}}"> {{workout.reps}} x {{workout.name}}</a></h4>
+      {{#each user.Workouts as |workout|}}
+      <div class="row mb-2">
+        <div class="col-md-6">
+          <h4><a href="/workout/{{workout.id}}"> {{workout.reps}} x {{workout.name}}</a></h4>
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-sm btn-danger" data-id="{{workout.id}}">REMOVE</button>
+        </div>
       </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{workout.id}}">DELETE</button>
-      </div>
+      {{/each}}
     </div>
-    {{/each}}
-  </div>
-  {{else}}
-  <div class="col-md-6 workout-list">
-    <h3>You have not completed any workouts yet! Go to the workouts tab to log some</h3>
- </div>
-  {{/if}}
+    {{else}}
+    <div class="col-md-6 workout-list">
+      <h3>You have not completed any workouts yet! Go to the workouts tab to log some</h3>
+    </div>
+    {{/if}}
   </div>
 
   <div class="col-md-4">
     <h3>Tell us about yourself!</h3>
-
-    <form class="form">
+<form class="form">
+  <div class="form-group">
+    <label for="user-height" class="my-1" >Height in cm</label>
+    <input class="form-control" type="text" id="user-height" name="user-height" value='{{user.height}}' />
+  </div>
+  <div class="form-group">
+    <label for="user-weight" class="my-1" >Weight in kg</label>
+    <input class="form-control" type="number" id="user-weight" value='{{user.weight}}' name="user-weight" />
+  </div>
+  <div class="form-group">
+    <label for="user-age" class="my-1">Age</label>
+    <input class="form-control" type="number" id="user-age" value='{{user.age}}' name="user-age" />
+  </div>
+  <div class="form-group">
+    <label for="user-bmi" class="my-1">BMI</label>
+    <input class="form-control" type="text" disabled id="user-bmi" value="{{user.bmi}}" name="user-bmi" />
+  </div>
       <div class="form-group">
-        <label for="user-height">Height in cm</label>
-        <input class="form-control" type="text" id="user-height" name="user-height" />
+        <label for="body-type"class="my-1">Body Type:</label>
+        <select id="user-gender" class="form-select body-type" aria-label="body-type">
+          <option value={{user.bodyType}} disabled selected hidden>{{currentBodyType}}</option>
+          <option value="M" id="male">Masculine</option>
+          <option value="F" id="female">Feminine</option>
+        </select>
       </div>
       <div class="form-group">
-        <label for="user-weight">Weight in kg</label>
-        <input class="form-control" type="number" id="user-weight" name="user-weight" />
+        <label for="user-goal"class="my-1">Goal:</label>
+        <select id="user-goal" class="form-select user-goal" aria-label="body-type">
+          <option value={{user.goal}} disabled selected hidden>{{currentGoal}}</option>
+          <option value="heavyWeightGain" id="heavyWeightGain">Heavy Weight Gain</option>
+          <option value="mildWeightGain" id="mildWeightGain">Mild Weight Gain</option>
+          <option value="balance" id="balance">Balance Weight</option>
+          <option value="mildWeightLoss" id="mildWeightLoss">Mild Weight Loss</option>
+          <option value="heavyWeightLoss" id="heavyWeightLoss">Heavy Weight Loss</option>
+        </select>
       </div>
       <div class="form-group">
-        <label for="user-age">Age</label>
-        <input class="form-control" type="number" id="user-age" name="user-age" />
-      </div>
-      <div class="form-group">
-         <label for="body-type">Body Type:</label>
-      <select id = "user-gender" class="form-select body-type" aria-label="body-type">
-        <option value="M" id="male" selected>Masculine</option>
-        <option value="F" id="female">Feminine</option>
-    </select>
-        </div>
-         <div class="form-group">
-         <label for="user-goal">Goal:</label>
-      <select id="user-goal" class="form-select user-goal" aria-label="body-type">
-        <option value="heavyWeightGain" id="heavyWeightGain">Heavy Weight Gain</option>
-        <option value="mildWeightGain" id="mildWeightGain">Mild Weight Gain</option>
-        <option value="balance" id="balance" selected>Balance Weight</option>
-        <option value="mildWeightLoss" id="mildWeightLoss">Mild Weight Loss</option>
-        <option value="heavyWeightLoss" id="heavyWeightLoss">Heavy Weight Loss</option>
-      </select>
-        </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary user-info">Update</button>
+        <button type="submit" class="btn btn-primary user-info my-1">Update</button>
       </div>
     </form>
   </div>

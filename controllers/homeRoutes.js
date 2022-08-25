@@ -55,11 +55,30 @@ router.get('/profile', withAuth, async (req, res) => {
             include: [{ model: Workout}]
         });
 
-        const user = userData.get({ plain: true });    
-        
+        const user = userData.get({ plain: true }); 
+        const isFem = (user.bodyType == 'F')
+        console.log(user.goal)
+        const currentGoal = () => {
+            switch (user.goal) {
+                case "mildWeightGain": return 'Mild Weight Gain'
+                case "heavyWeightGain": return 'Heavy Weight Gain'
+                case 'balance': return 'Balance Weight'
+                case 'mildWeightLoss': return 'Mild Weight Loss'
+                case 'heavyWeightLoss': return 'Heavy Weight Loss'
+            };
+        };
+        const currentBodyType = () => {
+            switch (user.bodyType) {
+                case 'M': return "Masculine"
+                case 'F': return "Feminine"
+            }
+        };
+
         res.render('userprofile', {
             user,
-            logged_in: true
+            logged_in: true,
+            currentGoal,
+            currentBodyType,
         });
         
     } catch (err) {
