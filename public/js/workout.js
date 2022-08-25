@@ -31,13 +31,12 @@
         console.log("working");
 
         if (event.target.hasAttribute('data-id')) {
-            const id = event.target.getAttribute('data-id');
-            const category_id = id;
-            const name = document.querySelector('.workout-name');
-            const reps = document.querySelector('.workout-reps');
-        const response = await fetch(`/api/workout/${id}`, {
-            method: 'PUT',
-            body: JSON.stringify({ category_id, name, reps }),
+            const workout_id = parseInt(event.target.getAttribute('data-id'));
+            const reps = parseInt(document.querySelector('.workout-reps').textContent);
+            console.log(reps);
+        const response = await fetch(`/api/workout/asign`, {
+            method: 'POST',
+            body: JSON.stringify({ workout_id, reps }),
             headers: {
               'Content-Type': 'application/json',
             },

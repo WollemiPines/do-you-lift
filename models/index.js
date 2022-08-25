@@ -13,14 +13,12 @@ Category.belongsToMany(Workout, {
 
 Workout.belongsToMany(User, {
     through: UserWorkouts,
-    as: 'user_id',
-    foreignKey: 'workout_id'
+    unique: false
 })
 
 User.belongsToMany(Workout, {
     through: UserWorkouts,
-    as: 'workout_id',
-    foreignKey: 'user_id'
+    unique: false
 })
 
 module.exports = {
