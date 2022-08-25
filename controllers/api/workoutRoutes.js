@@ -26,26 +26,26 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 
-// increase reps
+// increase reps WIP //
 
-router.put('/', withAuth, async (req, res) => {
-    console.log('req.body = ',req.body)
-    try {
-      const [affectedRows] = await Workout.update(req.body, {
-        where: {
-          id: req.params.id,
-        },
-      });
+// router.put('/', withAuth, async (req, res) => {
+//     console.log('req.body = ',req.body)
+//     try {
+//       const [affectedRows] = await Workout.update(req.body, {
+//         where: {
+//           id: req.params.id,
+//         },
+//       });
   
-      if (affectedRows > 0) {
-        res.status(200).end();
-      } else {
-        res.status(404).end();
-      }
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
+//       if (affectedRows > 0) {
+//         res.status(200).end();
+//       } else {
+//         res.status(404).end();
+//       }
+//     } catch (err) {
+//       res.status(500).json(err);
+//     }
+//   });
 
 
 // (b) get one workout

@@ -1,20 +1,30 @@
 
-   
+   // getting 404 not found on backend 
 
     let workoutReps = document.querySelector('#workout-0').innerHTML;
-
-    console.log(workoutReps);
+    let workoutID = document.querySelector('#workout-0').innerHTML;
+    let workoutNAME = document.querySelector('#workoutname-0').innerHTML;
 
     const workoutIn = document.querySelector('.workout-in');
     const workoutDec = document.querySelector('.workout-dec');
 
 
-    workoutIn.addEventListener('click', function(){
+    workoutIn.addEventListener('click', async function(){
         workoutReps = parseInt(workoutReps) +1;
-
-        console.log('btn clicked')
-        console.log(workoutReps);
+        await fetch(`/${(workoutID)}`, {
+            method: 'PUT',
+            body: JSON.stringify({
+                workoutNAME,
+                workoutReps          
+            }),
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          })
+        console.log(workoutReps, 'workoutreps');
     });
+
+      
 
 
 

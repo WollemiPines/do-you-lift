@@ -10,7 +10,7 @@
 <div class="card">
   <h5 class="card-header workout-category">{{workout.category}}</h5>
   <div class="card-body">
-    <h5 class="card-title workout-name">{{workout.name}}</h5>
+    <h5 class="card-title workout-name" id="workoutname-{{@index}}">{{workout.name}}</h5>
     <p class="card-text workout-reps" id="workout-{{@index}}">{{workout.reps}}</p>
     <a type="submit" href="#" class="btn btn-primary workout-log">Log this workout</a>
     <div class="intensityBttns"> Toggle Intensity
