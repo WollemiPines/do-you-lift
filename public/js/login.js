@@ -7,6 +7,7 @@ const loginFormHandler = async (event) => {
     // Collect values from the login form
     const email = document.querySelector('#email-login').value.trim();
     const password = document.querySelector('#password-login').value.trim();
+    const loginErr = document.querySelector('.loginErr');
   
     if (email && password) {
       // Send a POST request to the API endpoint
@@ -20,7 +21,7 @@ const loginFormHandler = async (event) => {
         // If successful, redirect the browser to the homepage
         document.location.replace('/profile');
       } else {
-        alert(response.statusText);
+        loginErr.classList.remove('hidden');
       }
     }
   };
