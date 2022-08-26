@@ -1,36 +1,4 @@
-// Saving A new Workout
 
-    const newWorkoutSave = async (event) => {
-        event.preventDefault();
-
-        console.log("working");
-
-        if (event.target.hasAttribute('data-id')) {
-            const id = event.target.getAttribute('data-id');
-            const name = document.querySelector('.workout-name');
-            const reps = document.querySelector('.workout-reps');
-        const response = await fetch(`/api/workout/${id}`, {
-            method: 'PUT',
-            body: JSON.stringify({ id, name, reps }),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          });
-          if (response.ok) {
-            console.log("worked");
-            document.location.replace('/workouts');
-          } else {
-            alert(response.statusText);
-          }
-        }
-   
-    }
-
-    document
-    .querySelector('#workout-save')
-    .addEventListener('click', newWorkoutSave);
-  
-  
    // getting 404 not found on backend 
 
     let workoutReps = document.querySelector('#workout-0').innerHTML;
@@ -55,8 +23,33 @@
           })
         console.log(workoutReps, 'workoutreps');
     });
-    
-    
-    // const workoutName = document.querySelector('.workout-name').value;
-    // const workoutReps = document.querySelector('.workout-reps').value;
 
+
+    const newWorkoutSave = async (event) => {
+        event.preventDefault();
+
+        console.log("working");
+
+        if (event.target.hasAttribute('data-id')) {
+            const workout_id = parseInt(event.target.getAttribute('data-id'));
+            const reps = parseInt(document.querySelector('.workout-reps').textContent);
+            console.log(reps);
+        const response = await fetch(`/api/workout/asign`, {
+            method: 'POST',
+            body: JSON.stringify({ workout_id, reps }),
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          });
+          if (response.ok) {
+            console.log("worked");
+            document.location.replace('/workouts');
+          } else {
+            alert(response.statusText);
+          }
+        }
+   
+    }
+
+    document.querySelector('#workout-save').addEventListener('click', newWorkoutSave);
+  

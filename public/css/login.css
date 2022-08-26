@@ -30,7 +30,8 @@ body {
 }
 
 .login-box .user-box {
-	position: relative;
+	position:relative;
+	padding: 8px;
 }
 
 .login-box .user-box input {
