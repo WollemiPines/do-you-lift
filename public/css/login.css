@@ -171,20 +171,8 @@ body {
 .hidden {
     display: none;
 }
-/* Custom class for text top left of page */
-.custom-logo {
-    padding-left: 20px;
-    padding-top: 20px;
-    font: 'Open Sans', 'sans-serif';
-    color: #FFF;
-}
-/* Custom class for nav link colors */
-.nav-color {
-    color: #FFF;
-    font-size: 19px;
-}
-.nav-color:hover {
-    color: #FFF;
-}
+
+
+
 
 
