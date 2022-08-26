@@ -1,5 +1,5 @@
 const router = require ('express').Router();
-const { Workout, Category } = require('../../models');
+const { Workout, Category, UserWorkouts } = require('../../models');
 const withAuth = require('../../utils/auth')
 
 
@@ -109,5 +109,24 @@ router.delete('/:id', withAuth, async (req, res) => {
         res.status(500).json(err)
     }
 });
+
+// Add Workout to users workouts database
+router.post('/asign', async (req, res) => {
+    try {
+        const { workout_id, reps } = req.body;
+       // const user = await User.findOne(req.session.workout_id);
+        await UserWorkouts.create({ user_id: req.session.user_id,
+            workout_id: workout_id,
+            reps: reps
+        }
+        )
+         
+        res.status(200).json()
+    } catch (err) {
+        console.log(err)
+        res.status(500).json(err)
+    };
+});
+
 
 module.exports = router;
