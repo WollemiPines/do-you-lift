@@ -49,28 +49,62 @@ const loginFormHandler = async (event) => {
     }
   };
 
-  const showSignUp = async (event) => {
+  let renderlogin = async (event) => {
     event.preventDefault();
-    let sign = document.getElementById("signup-container");
-    let log = document.getElementById("login-container")
-    sign.classList.remove("hidden");
-    log.classList.add("hidden");
+
+    console.log("render called")
+
+    const response = await fetch('/login', {
+
+    });
+
+    if (response.ok){
+      let sign = document.getElementById("signup-container");
+      sign.classList.add("hidden");
+      let log = document.getElementById("login-container")
+      log.classList.remove("hidden"); 
+    } else {
+      alert(response.statusText)
+    }
   }
+
+  let renderSignUp = async (event) => {
+    event.preventDefault();
+
+    console.log("render called")
+
+    const response = await fetch('/login', {
+
+    });
+
+    if (response.ok){
+      let sign = document.getElementById("signup-container");
+      sign.classList.remove("hidden");
+      let log = document.getElementById("login-container");
+      log.classList.add("hidden");
+    } else {
+      alert (response.statusText)
+    }
+  }
+
+  const showSignUp = async (event) => {
+    // event.preventDefault();
+  
+      let sign = document.getElementById("signup-container");
+      sign.classList.remove("hidden");
+      let log = document.getElementById("login-container");
+      log.classList.add("hidden");
+  };
 
   const showLogIn = async (event) => {
-    event.preventDefault();
+    // event.preventDefault();
 
-    let sign = document.getElementById("signup-container");
-    let log = document.getElementById("login-container")
-    sign.classList.add("hidden");
-    log.classList.remove("hidden");
-  }
+      let sign = document.getElementById("signup-container");
+      sign.classList.add("hidden");
+      let log = document.getElementById("login-container")
+      log.classList.remove("hidden"); 
+  };
 
-  const hideSignUp = async () => {
-    let sign = document.getElementById("signup-container");
-    sign.classList.add("hidden");
-  }
-  
   document
     .querySelector('.login-btn')
     .addEventListener('click', loginFormHandler);
@@ -78,13 +112,34 @@ const loginFormHandler = async (event) => {
   document
     .querySelector('.signup-form')
     .addEventListener('click', signupFormHandler);
-
+    
   document
     .querySelector('.loginBtn')
-    .addEventListener('click', showLogIn);
+    .addEventListener('click', renderlogin);
 
   document
     .querySelector('.signUpBtn')
-    .addEventListener('click', showSignUp);
+    .addEventListener('click', renderSignUp);
 
-    hideSignUp();
+const formAuth = async () => {
+  if(renderlogin = true){
+    return showLogIn();
+  } else if (renderSignUp = true) {
+    return showSignUp();
+  }
+}
+
+formAuth();
+
+
+
+
+
+
+
+  
+
+    
+     
+  
+  
