@@ -1,19 +1,16 @@
-<div class="row">
-    <div class="col-auto">
-        <h2> Have a look at these... {{user.name}}</h2>
-    </div>
-</div>
+
 
 {{#if workouts.length}}
-     <h2>All workouts</h2>
+     <h2 class="workout-header">WORKOUTS</h2>
+     <p>You can save these workouts to your profile page</p>
 {{#each workouts as |workout|}}
-<div class="card">
+<div class="card custom-card">
   <h5 class="card-header workout-category">{{workout.category}}</h5>
   <div class="card-body">
-    <h5 class="card-title workout-name" id="workoutname-{{@index}}">{{workout.name}}</h5>
-    <p class="card-text workout-reps" id="workout-{{@index}}">{{workout.reps}}</p>
-    <a type="submit" href="#" class="btn btn-primary workout-log" data-id="{{workout.id}}" id="workout-save">Log this workout</a>
-    <div class="intensityBttns"> Toggle Intensity
+    <h5 class="card-title workout-name text-center" id="workoutname-{{@index}}">{{workout.name}}</h5>
+    <p class="card-text workout-reps text-center" id="workout-{{@index}}">{{workout.reps}}</p>
+    
+    <div class="intensityBttns intensity-button">
     <div>
          <a href="#"><i class="fa fa-caret-up fa-2x workout-in workout-in" name="workout-in"></i></a>
     </div>
@@ -21,6 +18,8 @@
          <a href="#"><i class="fa fa-caret-down fa-2x workout-dec" btn="workout-dec"></i></a>
     </div>
     </div>
+    <a type="submit" href="#" class="btn btn-primary custom-button workout-log d-flex justify-content-center" data-id="{{workout.id}}" id="workout-save">SAVE</a>
+
  </div>
 </div>
 {{else}}

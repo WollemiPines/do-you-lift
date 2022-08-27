@@ -219,6 +219,16 @@ a{color:inherit;text-decoration:none}
 	letter-spacing: 1px;
 }
 
+.custom-button {
+	width: 150px;
+	margin: auto;
+}
+
+.intensity-button {
+	width: 40px;
+	margin: auto;
+}
+
 /* PROFILE BUTTON ON HOMEPAGE */
 
 .profile-wrap {
@@ -299,6 +309,16 @@ border-color: rgb(0, 74, 154);
 
 .nav-color:hover {
     color: #FFF;
+}
+
+.workout-header{
+	color: #F1EEE6;
+	text-align: center;
+}
+
+.custom-card {
+	display: flex;
+	justify-content: center;
 }
 
 /* MEDIA QUERIES */
