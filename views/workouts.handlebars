@@ -1,24 +1,23 @@
-
-
 {{#if workouts.length}}
      <h2 class="workout-header">WORKOUTS</h2>
-     <p>You can save these workouts to your profile page</p>
+     <p class="workout-text">You can save these workouts to your profile page for later reference. Use the intensity buttons to either increase or decrease the intensity of your workout.</p>
 {{#each workouts as |workout|}}
 <div class="card custom-card">
   <h5 class="card-header workout-category">{{workout.category}}</h5>
   <div class="card-body">
     <h5 class="card-title workout-name text-center" id="workoutname-{{@index}}">{{workout.name}}</h5>
-    <p class="card-text workout-reps text-center" id="workout-{{@index}}">{{workout.reps}}</p>
+    <p class="card-text workout-reps text-center custom-reps" id="workout-{{@index}}">{{workout.reps}}</p>
     
     <div class="intensityBttns intensity-button">
-    <div>
-         <a href="#"><i class="fa fa-caret-up fa-2x workout-in workout-in" name="workout-in"></i></a>
+    <div class="intense-wrap-up">
+         <a href="#"><i class="fa fa-caret-up fa-2x workout-in workout-in custom-intensity-up" name="workout-in"></i></a>
     </div>
-    <div>
-         <a href="#"><i class="fa fa-caret-down fa-2x workout-dec" btn="workout-dec"></i></a>
+    <div class="intense-wrap-dec">
+         <a href="#"><i class="fa fa-caret-down fa-2x workout-dec custom-intensity-dec" btn="workout-dec"></i></a>
     </div>
     </div>
-    <a type="submit" href="#" class="btn btn-primary custom-button workout-log d-flex justify-content-center" data-id="{{workout.id}}" id="workout-save">SAVE</a>
+    {{!-- <a class="profile-button" href="/profile">Profile</a> --}}
+    <a type="submit" href="#" class="profile-button m-auto custom-button workout-log d-flex justify-content-center" data-id="{{workout.id}}" id="workout-save">save</a>
 
  </div>
 </div>

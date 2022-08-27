@@ -225,8 +225,11 @@ a{color:inherit;text-decoration:none}
 }
 
 .intensity-button {
-	width: 40px;
+	display: flex;
+	justify-content: space-between;
+	width: 60px;
 	margin: auto;
+	padding-bottom: 15px;
 }
 
 /* PROFILE BUTTON ON HOMEPAGE */
@@ -314,11 +317,46 @@ border-color: rgb(0, 74, 154);
 .workout-header{
 	color: #F1EEE6;
 	text-align: center;
+	font-family: 'Bebas Neue', cursive;
+	font-size: 60px;
+	letter-spacing: 5px;
+}
+
+.workout-text {
+	color: #F1EEE6;
+	text-align: center;
+	padding-top: 30px;
+	font-weight: normal;
+	font-family: 'Arial', sans-serif;
 }
 
 .custom-card {
 	display: flex;
 	justify-content: center;
+}
+
+.workout-name {
+	color: #F1EEE6;
+	font-family: 'Arial', sans-serif;
+	text-transform: capitalize;
+	font-size: 30px;
+	font-weight:bold;
+}
+
+.custom-reps {
+	color:rgb(7, 127, 255);
+	font-size: 25px;
+	padding-top: 20px;
+	padding-bottom: 15px;
+}
+
+.custom-intensity-up {
+	color: #39FF14;
+
+}
+
+.custom-intensity-dec {
+	color: red;
 }
 
 /* MEDIA QUERIES */
