@@ -24,10 +24,11 @@
     </div>
     {{else}}
     <div class="col-md-6 workout-list">
-      <h3>You have not completed any workouts yet! Go to the workouts tab to log some</h3>
+      <h3 class="noWorkout">You have not completed any workouts yet! Go to the workouts tab to create some</h3>
     </div>
     {{/if}}
   </div>
+
 
   <div class="col-md-4 custom-box-info">
     <h3 class="font-head">Tell us about yourself!</h3>
@@ -56,7 +57,7 @@
           <option value="F" id="female">Feminine</option>
         </select>
       </div>
-      <div class="form-group">
+      <div class="form-group custom-name">
         <label for="user-goal"class="my-1 font-head-info">Goal:</label>
         <select id="user-goal" class="form-select user-goal" aria-label="body-type">
           <option value={{user.goal}} disabled selected hidden>{{currentGoal}}</option>
