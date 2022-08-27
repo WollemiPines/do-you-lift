@@ -1,22 +1,22 @@
 <div class="row">
   <div class="col-12 mx-4">
-    <h2>Welcome, {{user.name}}!</h2>
+    <h2 class="font-head">Welcome, {{user.name}}!</h2>
   </div>
 </div>
 
 <div class="row mt-4 mx-2">
-  <div class="col-md-8">
+  <div class="col-sm custom-box">
     {{#if user.Workouts.length}}
-    <div class="col-md-8 workout-list">
-      <h3>Your Workouts</h3>
+    <div class="card p-5 border-0 rounded-top hover-style-1">
+      <h3 class="font-head-workout">Saved Workouts</h3>
       {{workout}}
 
       {{#each user.Workouts as |workout|}}
       <div class="row mb-2">
-        <div class="col-md-6">
-          <h4><a href="/workout/{{workout.id}}"> {{workout.reps}} x {{workout.name}}</a></h4>
+        <div class="col-md-6 custom-card-reps p-4 border-0 rounded-top hover-style-1">
+          <h4 class="font-head-reps"><a href="/workout/{{workout.id}}"> {{workout.reps}} x {{workout.name}}</a></h4>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4-align-bottom">
           <button class="btn btn-sm btn-danger" data-id="{{workout.id}}">REMOVE</button>
         </div>
       </div>
@@ -29,27 +29,27 @@
     {{/if}}
   </div>
 
-  <div class="col-md-4">
-    <h3>Tell us about yourself!</h3>
+  <div class="col-md-4 custom-box-info">
+    <h3 class="font-head">Tell us about yourself!</h3>
 <form class="form">
   <div class="form-group">
-    <label for="user-height" class="my-1" >Height in cm</label>
+    <label for="user-height" class="my-1 font-head-info" >Height (CM)</label>
     <input class="form-control" type="text" id="user-height" name="user-height" value='{{user.height}}' />
   </div>
   <div class="form-group">
-    <label for="user-weight" class="my-1" >Weight in kg</label>
+    <label for="user-weight" class="my-1 font-head-info" >Weight (KG)</label>
     <input class="form-control" type="number" id="user-weight" value='{{user.weight}}' name="user-weight" />
   </div>
   <div class="form-group">
-    <label for="user-age" class="my-1">Age</label>
+    <label for="user-age" class="my-1 font-head-info">Age</label>
     <input class="form-control" type="number" id="user-age" value='{{user.age}}' name="user-age" />
   </div>
   <div class="form-group">
-    <label for="user-bmi" class="my-1">BMI</label>
+    <label for="user-bmi" class="my-1 font-head-info">BMI</label>
     <input class="form-control" type="text" disabled id="user-bmi" value="{{user.bmi}}" name="user-bmi" />
   </div>
       <div class="form-group">
-        <label for="body-type"class="my-1">Body Type:</label>
+        <label for="body-type"class="my-1 font-head-info">Body Type:</label>
         <select id="user-gender" class="form-select body-type" aria-label="body-type">
           <option value={{user.bodyType}} disabled selected hidden>{{currentBodyType}}</option>
           <option value="M" id="male">Masculine</option>
@@ -57,7 +57,7 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="user-goal"class="my-1">Goal:</label>
+        <label for="user-goal"class="my-1 font-head-info">Goal:</label>
         <select id="user-goal" class="form-select user-goal" aria-label="body-type">
           <option value={{user.goal}} disabled selected hidden>{{currentGoal}}</option>
           <option value="heavyWeightGain" id="heavyWeightGain">Heavy Weight Gain</option>
@@ -68,7 +68,7 @@
         </select>
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary user-info my-1">Update</button>
+        <button type="submit" class="btn btn-primary user-info my-1 font-head-info">Update</button>
       </div>
     </form>
   </div>
