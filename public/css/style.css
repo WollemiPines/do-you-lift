@@ -301,6 +301,17 @@ border-color: rgb(0, 74, 154);
     color: #FFF;
 }
 
+.custom-name {
+	font-family: 'Arial', sans-serif;
+	color: #F1EEE6;
+}
+
+.noWorkout {
+	font-family: 'Arial', sans-serif;
+	color: #F1EEE6;
+	font-size: 20px;
+}
+
 /* MEDIA QUERIES */
 
 @media screen and (max-width: 991px) {
