@@ -305,6 +305,7 @@ border-color: rgb(0, 74, 154);
 	border: #F1EEE6 solid 1px;
 }
 
+
 .navbar-toggler-icon {
 	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28241, 238, 230, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
@@ -319,6 +320,16 @@ border-color: rgb(0, 74, 154);
 	background-image: var(--contrastDocBlue);
 } */
 
+.custom-name {
+	font-family: 'Arial', sans-serif;
+	color: #F1EEE6;
+}
+
+.noWorkout {
+	font-family: 'Arial', sans-serif;
+	color: #F1EEE6;
+	font-size: 20px;
+
 .workout-header{
 	color: #F1EEE6;
 	text-align: center;
@@ -327,6 +338,7 @@ border-color: rgb(0, 74, 154);
 .custom-card {
 	display: flex;
 	justify-content: center;
+
 }
 
 /* MEDIA QUERIES */
