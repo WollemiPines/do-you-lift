@@ -27,7 +27,7 @@ Workout Tracker app that allows users to create their own profile, set goals, se
 #### Install database
 * mysql > SOURCE ./db/schema.sql
 #### Run Seeds
-* node run seed
+* npm run seed
 
 ## Usage
 node server
