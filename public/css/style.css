@@ -183,8 +183,24 @@ a{color:inherit;text-decoration:none}
 	margin: 5px;
 }
 
+.custom-box-info {
+	background: rgba(0,0,0,.5);
+	box-shadow: 0 15px 25px rgba(0 0 0 / 50%);
+	border-radius: 10px;
+	margin: 10px;
+}
+
 .card {
 	--bs-card-bg: none;
+}
+
+.custom-card-reps{
+	--bs-card-bg: none;
+	background-color: rgb(49, 60, 82);
+	box-shadow: 0 15px 25px rgba(0 0 0 / 50%);
+	border-radius: 10px;
+	margin: 10px;
+
 }
 
 .font-head {
@@ -192,6 +208,28 @@ a{color:inherit;text-decoration:none}
 	font-size: calc(1.325rem + .9vw);
 	color: #F1EEE6;
 	text-align: center;
+}
+ /* new commits */
+.font-head-workout {
+	font-family: 'Bebas Neue', cursive;
+	font-size: calc(1.325rem + .9vw);
+	color: #F1EEE6;
+	text-align: left;
+}
+
+.font-head-reps {
+	font-family: 'Bebas Neue', cursive;
+	font-size: 2rem;
+	color: #F1EEE6;
+	text-align: center;
+}
+.font-head-info {
+	font-family: 'Bebas Neue',cursive ;
+	font-size: 1.5rem;
+	color: #F1EEE6;
+	text-align: center;
+	font-weight: 400;
+	
 }
 
 .custom-font {
