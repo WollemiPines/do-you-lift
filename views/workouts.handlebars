@@ -10,12 +10,10 @@
                <h5 class="card-text workout-category text-center">{{workout.category}}</h5>
                <p class="card-text workout-reps text-center custom-reps" id="reps-{{workout.id}}">{{workout.reps}}</p>
                <div class="intensityBttns intensity-button">
-                    {{!-- <div class="intense-wrap-up"> --}}
-                         <i class="fa fa-caret-up fa-2x workout-in custom-intensity-up btn px-2" data-in="{{workout.id}}"></i>
-                    {{!-- </div> --}}
-                    {{!-- <div class="intense-wrap-dec"> --}}
-                         <i class="fa fa-caret-down fa-2x custom-intensity-dec workout-dec btn px-2" data-dec="{{workout.id}}"></i>
-                    {{!-- </div> --}}
+                    <i class="fa fa-caret-up fa-2x workout-in custom-intensity-up btn px-2"
+                         data-in="{{workout.id}}"></i>
+                    <i class="fa fa-caret-down fa-2x custom-intensity-dec workout-dec btn px-2"
+                         data-dec="{{workout.id}}"></i>
                </div>
                <button class="profile-button m-auto custom-button workout-log d-flex justify-content-center"
                     data-id="{{workout.id}}">save</button>

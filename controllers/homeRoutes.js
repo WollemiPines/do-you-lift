@@ -35,13 +35,13 @@ router.get('/workouts', async (req, res) => {
         const workouts = workoutData.map((data) => {
             const workout = data.get({ plain: true, });
             const category = workout.Categories.map((data) => data.name);
-            return { 
+            return {
                 id: workout.id,
                 name: workout.name,
                 reps: workout.reps,
                 category: category
-             }
-        }); 
+            }
+        });
         //  render the page
         res.render('workouts', {
             workouts,
@@ -56,7 +56,7 @@ router.get('/profile', withAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] },
-            include: [{ model: Workout, through: {model: UserWorkouts} }]
+            include: [{ model: Workout, through: { model: UserWorkouts } }]
         });
 
         const user = userData.get({ plain: true });
