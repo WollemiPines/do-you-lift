@@ -7,14 +7,14 @@
 <div class="row mt-4 mx-2">
   <div class="col-sm custom-box">
     {{#if user.Workouts.length}}
-    <div class="card p-5 border-0 rounded-top hover-style-1">
+    <div class="card p-5 border-0 rounded-top hover-style-1 workout-list">
       <h3 class="font-head-workout">Saved Workouts</h3>
       {{workout}}
 
       {{#each user.Workouts as |workout|}}
       <div class="row mb-2">
         <div class="col-md-6 custom-card-reps p-4 border-0 rounded-top hover-style-1">
-          <h4 class="font-head-reps"><a href="/workout/{{workout.id}}"> {{workout.reps}} x {{workout.name}}</a></h4>
+          <h4 class="font-head-reps"><span>{{workout.UserWorkouts.reps}} x {{workout.name}}</span></h4>
         </div>
         <div class="col-md-4-align-bottom">
           <button class="btn btn-sm btn-danger" data-id="{{workout.id}}">REMOVE</button>
