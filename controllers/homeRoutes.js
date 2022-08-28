@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Workout, Category } = require('../models');
+const { User, Workout, Category, UserWorkouts } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -52,10 +52,11 @@ router.get('/profile', withAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] },
-            include: [{ model: Workout }]
+            include: [{ model: Workout, through: {model: UserWorkouts} }]
         });
 
         const user = userData.get({ plain: true });
+
         // Gets the current user goal, adjusts the wording for display
         const currentGoal = () => {
             switch (user.goal) {
