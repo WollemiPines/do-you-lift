@@ -1,31 +1,29 @@
 {{#if workouts.length}}
-     <h2 class="workout-header">WORKOUTS</h2>
-     <p class="workout-text">You can save these workouts to your profile page for later reference. Use the intensity buttons to either increase or decrease the intensity of your workout.</p>
-{{#each workouts as |workout|}}
-<div class="card custom-card">
-  <h5 class="card-header workout-category">{{workout.category}}</h5>
-  <div class="card-body">
-    <h5 class="card-title workout-name text-center" id="workoutname-{{@index}}">{{workout.name}}</h5>
-    <p class="card-text workout-reps text-center custom-reps" id="workout-{{@index}}">{{workout.reps}}</p>
-    
-    <div class="intensityBttns intensity-button">
-    <div class="intense-wrap-up">
-         <a href="#"><i class="fa fa-caret-up fa-2x workout-in workout-in custom-intensity-up" name="workout-in"></i></a>
-    </div>
-    <div class="intense-wrap-dec">
-         <a href="#"><i class="fa fa-caret-down fa-2x workout-dec custom-intensity-dec" btn="workout-dec"></i></a>
-    </div>
-    </div>
-    {{!-- <a class="profile-button" href="/profile">Profile</a> --}}
-    <a type="submit" href="#" class="profile-button m-auto custom-button workout-log d-flex justify-content-center" data-id="{{workout.id}}" id="workout-save">save</a>
-
- </div>
+<h2 class="workout-header">WORKOUTS</h2>
+<p class="workout-text">You can save these workouts to your profile page for later reference. Use the intensity buttons
+     to either increase or decrease the intensity of your workout.</p>
+<div class="user-workouts">
+     {{#each workouts as |workout|}}
+     <div class="card custom-card">
+          <div class="card-body">
+               <h5 class="card-title workout-name text-center" id='workoutname-{{@index}}'>{{workout.name}}</h5>
+               <h5 class="card-text workout-category text-center">{{workout.category}}</h5>
+               <p class="card-text workout-reps text-center custom-reps" id="reps-{{workout.id}}">{{workout.reps}}</p>
+               <div class="intensityBttns intensity-button">
+                    <i class="fa fa-caret-up fa-2x workout-in custom-intensity-up btn px-2"
+                         data-in="{{workout.id}}"></i>
+                    <i class="fa fa-caret-down fa-2x custom-intensity-dec workout-dec btn px-2"
+                         data-dec="{{workout.id}}"></i>
+               </div>
+               <button class="profile-button m-auto custom-button workout-log d-flex justify-content-center"
+                    data-id="{{workout.id}}">save</button>
+          </div>
+     </div>
+     {{/each}}
 </div>
 {{else}}
-    <p>No workouts available</p>
-{{/each}}
+<p>No workouts available</p>
 {{/if}}
 
 
 <script src="js/workout.js"></script>
-

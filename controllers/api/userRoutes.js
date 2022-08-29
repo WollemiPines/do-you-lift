@@ -42,7 +42,6 @@ router.put('/', async (req, res) => {
             });
         res.status(200).json(userData)
     } catch (err) {
-        console.log(err)
         res.status(500).json(err)
     };
 });
@@ -93,8 +92,6 @@ router.delete('/:id', async (req, res) => {
     try {
         const workoutID = req.params.id;
         const userID = req.session.user_id;
-        console.log(workoutID)
-        console.log(userID)
         const userWorkout = await UserWorkouts.destroy({
             where: {
                 user_id: userID,
@@ -103,12 +100,11 @@ router.delete('/:id', async (req, res) => {
         })
         res.status(200).json(userWorkout)
     } catch (err) {
-        console.log(err)
         res.status(500).json(err)
     };
 });
 
-   
+
 // (e) session clear on logout
 router.post('/logout', (req, res) => {
     if (req.session.logged_in) {
