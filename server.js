@@ -19,7 +19,8 @@ const sess = {
   saveUninitialized: true,
   store: new SequelizeStore({
     db: sequelize
-  })
+  }),
+  maxAge: new Date(Date.now() + (86400 * 1000))
 }
 
 app.use(session(sess))
