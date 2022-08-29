@@ -5,6 +5,9 @@
 ## Description: 
 Workout Tracker app that allows users to create their own profile, set goals, select workouts and add their own workouts. 
 
+## Deployment:
+https://salty-ridge-96244.herokuapp.com/
+
 ## Contributors:
 * Ruben - https://github.com/r-r-i
 * Chris - https://github.com/WollemiPines
@@ -39,6 +42,10 @@ Edit off new branch, add comments to changes made
 Test sign-up, login, updating user profile, adding and selecting workouts
 
 ## Media
+![Lift_Home](https://user-images.githubusercontent.com/102524579/187135738-b73d80a7-9113-456b-881d-69fb0759ce08.png)
+![Lift_Login](https://user-images.githubusercontent.com/102524579/187135744-3abceba9-cd5e-4c57-9f81-c7a5e2a63a5c.png)
+![Lift_Profile](https://user-images.githubusercontent.com/102524579/187135746-96be4f3c-d557-48df-aa6d-e1946a27e88b.png)
+![Lift_Workouts](https://user-images.githubusercontent.com/102524579/187135748-9ab7431e-f332-46c1-965d-fa35865450b7.png)
 
 ## Questions
 Contact Me: 
