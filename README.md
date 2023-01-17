@@ -6,7 +6,7 @@
 Workout Tracker app that allows users to create their own profile, set goals, select workouts and add their own workouts. 
 
 ## Deployment:
-https://salty-ridge-96244.herokuapp.com/
+not currently working, requires updating
 
 ## Contributors:
 * Ruben - https://github.com/r-r-i
